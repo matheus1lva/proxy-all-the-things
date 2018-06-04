@@ -1,0 +1,17 @@
+{
+  "name": "@playma256/proxy-all-the-things",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "3.1.0",
+    "request": "2.87.0",
+    "uuid": "3.2.1"
+  }
+}
