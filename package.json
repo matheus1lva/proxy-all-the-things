@@ -1,7 +1,7 @@
 {
   "name": "@playma256/proxy-all-the-things",
   "version": "1.0.0",
-  "description": "",
+  "description": "Pretty beautiful wrapper that easies reverse proxy creation",
   "files": [
     "index.js"
   ],
@@ -10,8 +10,14 @@
     "lint": "eslint .",
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "proxy",
+    "reverse",
+    "reverse-proxy",
+    "express",
+    "http"
+  ],
+  "author": "Matheus Gonçalves da Silva <PlayMa256>",
   "license": "ISC",
   "dependencies": {
     "debug": "3.1.0",
