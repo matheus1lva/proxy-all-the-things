@@ -1,0 +1,20 @@
+language: node_js
+sudo: false
+notifications:
+  email: false
+
+node_js:
+  - "10"
+  - "8"
+  - "6"
+cache:
+  directories:
+    - ~/.npm
+
+before_install:
+  - npm install -g yarn
+
+install:
+  - yarn
+
+script: yarn test
