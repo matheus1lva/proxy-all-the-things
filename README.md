@@ -1,5 +1,8 @@
 # Proxy All the Things!!
 
+## Motivations
+Well, i faced a few situations where i need to create a reverse proxy on my interface to access another system which had no apis to query to. This is basically a well crafted wrapper that eases the creation of a reverse proxy, just asking for 2 options in order to achieve that.
+
 ## Installation
 > `npm install --save @playma256/proxy-all-the-things` 
 
