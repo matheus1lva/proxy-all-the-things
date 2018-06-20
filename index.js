@@ -1,9 +1,9 @@
-const debug = require('debug')('proxy-all-the-things::proxy');
-const request = require('request');
-const uuid = require('uuid/v4');
+const debug = require("debug")("proxy-all-the-things::proxy");
+const request = require("request");
+const uuid = require("uuid/v4");
 
-const proxyableHeaders = ['accept', 'content-type', 'range', 'user-agent', 'cookie', 'host'];
-const nonReturnableHeaders = ['server', 'host', 'content-length', 'x-powered-by', 'date', 'connection', 'x-powered-by'];
+const proxyableHeaders = ["accept", "content-type", "range", "user-agent", "cookie", "host"];
+const nonReturnableHeaders = ["server", "host", "content-length", "x-powered-by", "date", "connection", "x-powered-by"];
 
 /**
  * @typedef {Object} ProxyConfig
@@ -17,12 +17,13 @@ module.exports = class Proxy {
 	 */
 	constructor(config) {
 		this.config = config;
+		this.proxyHandler = this.proxyHandler.bind(this);
 	}
 
 	proxyHandler(req, res) {
 		const correlationId = uuid();
 		const start = Date.now();
-		const url = `${this.config.baseUrl}${req.url.replace(this.config.internalPath, '')}`;
+		const url = `${this.config.baseUrl}${req.url.replace(this.config.internalPath, "")}`;
 
 		debug(`${correlationId} proxying to: ${url}`);
 
@@ -46,12 +47,13 @@ module.exports = class Proxy {
 			followRedirect: false
 		});
 
-		requestStream.on('response', response => {
+		requestStream.on("response", response => {
 			debug(`cid: ${correlationId} - proxied successfully. Status code: ${response.statusCode}`);
 			const headersCopy = Object.assign({}, response.headers);
 
 			// We reached a redirect
 			if (response.statusCode === 302) {
+				debug("We hi a 302");
 				headersCopy.location = response.headers.location.replace(this.config.baseUrl, req.headers.host);
 			}
 
@@ -64,9 +66,9 @@ module.exports = class Proxy {
 				});
 
 			requestStream.pipe(res);
-		}).on('end', () => {
+		}).on("end", () => {
 			debug(`cid: ${correlationId} - proxy destination answered, took ${Date.now() - start}ms`);
-		}).on('error', error => {
+		}).on("error", error => {
 			debug(`cid: ${correlationId} - error proxying to ${url}: ${error}`);
 		});
 	}
