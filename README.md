@@ -29,6 +29,11 @@ const ProxyInstance = new Proxy({
 app.all('/myServerRoot*', ProxyInstance.proxyHandler);
 ```
 
+## Debug mode
+In order to show all the debug statements and be able to analyse what is going on, use what `debug` has to offer you.
+
+To Enable that, just execute: `DEBUG=proxy-all-the-things::proxy npm start` and the debug statements will pop on your screen.
+
 ## Options
 
 | Property | Description |
