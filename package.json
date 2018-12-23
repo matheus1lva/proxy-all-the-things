@@ -20,7 +20,7 @@
   "author": "Matheus Gonçalves da Silva <PlayMa256>",
   "license": "ISC",
   "dependencies": {
-    "debug": "4.1.0",
+    "debug": "4.1.1",
     "request": "2.88.0",
     "uuid": "3.3.2"
   },
