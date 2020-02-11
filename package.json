@@ -21,7 +21,7 @@
   "license": "ISC",
   "dependencies": {
     "debug": "4.1.1",
-    "request": "2.88.0",
+    "request": "2.88.2",
     "uuid": "3.3.3"
   },
   "devDependencies": {
